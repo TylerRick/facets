@@ -1,6 +1,7 @@
 module Enumerable
 
-  # Clusters together adjacent elements into a list of sub-arrays.
+  # Clusters together adjacent elements that share the property given by a block into a list of
+  # sub-arrays.
   #
   #     [2,2,2,3,3,4,2,2,1].cluster{ |x| x }
   #     => [[2, 2, 2], [3, 3], [4], [2, 2], [1]]
@@ -8,18 +9,30 @@ module Enumerable
   #     ["dog", "duck", "cat", "dude"].cluster{ |x| x[0] }
   #     => [["dog", "duck"], ["cat"], ["dude"]]
   #
-  # @author Oleg K
+  # @author Oleg K, Tyler Rick
 
-  def cluster
-    cluster = []
-    each do |element|
-      if cluster.last && yield(cluster.last.last) == yield(element)
-        cluster.last << element
-      else
-        cluster << [element]
-      end
+  if RUBY_VERSION >= '2.3'
+
+    def cluster
+      chunk_while { |prev, element|
+        yield(prev) == yield(element)
+      }.to_a
     end
-    cluster
+
+  else
+
+    def cluster
+      clusters = []
+      each do |element|
+        if clusters.last && yield(clusters.last.last) == yield(element)
+          clusters.last << element
+        else
+          clusters << [element]
+        end
+      end
+      clusters
+    end
+
   end
 
 end
