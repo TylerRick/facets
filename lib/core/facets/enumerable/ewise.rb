@@ -2,7 +2,7 @@ require 'facets/functor'
 
 module Enumerable
 
-  # TODO: Should Enumerable#ewise be moved to functor gem?"
+  # TODO: Should Enumerable#ewise be moved to functor gem?
 
   # Returns an elementwise Functor designed to make R-like
   # elementwise operations possible. This is very much like
@@ -49,7 +49,7 @@ module Enumerable
     end
   end
 
-  # Long-term for #ewise.
+  # Long form for #ewise.
   #
   #   a = [1,2]
   #   (a.elementwise + 3)          #=> [4,5]
