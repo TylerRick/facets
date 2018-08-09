@@ -14,7 +14,7 @@ module Enumerable
   #   x  #=> [ [1,2,3], [4,5,6] ]
   #
   # This is just like each_slice, except that it will check
-  # the arity of the block. If each_slice ever suppots this
+  # the arity of the block. If each_slice ever supports this,
   # this method can be deprecated.
   #
   # CREDIT: Trans
