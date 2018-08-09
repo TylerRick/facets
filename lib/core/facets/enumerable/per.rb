@@ -4,7 +4,7 @@ module Enumerable
 
   # TODO: Consider Enumerator methods.
 
-  # TODO: Should Enumerable#pre be moved to functor gem?
+  # TODO: Should Enumerable#per be moved to functor gem?
 
   # TODO: Does the `*y` argument make sense?
 
