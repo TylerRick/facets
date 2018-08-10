@@ -1,7 +1,7 @@
 = PRE-RELEASE HISTORY
 
 This is pre-release history, before the library was ever called "Facets".
-A good bit of this history is lost simply becuase version control wasn't
+A good bit of this history is lost simply because version control wasn't
 even being used yet!!! For instance, at one point the library was called 
 "Trix and Atomix", and at another point is was called "California and Florida".
 This was just before it was called "Facets", for the first time. After that it 

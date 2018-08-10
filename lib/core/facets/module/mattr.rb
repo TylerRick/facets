@@ -148,7 +148,7 @@ class Module
   #   c.a           #=> 10
   #
   # NOTE: The #mattr methods may not be as useful for modules as the #cattr
-  # methods are for classes, becuase class-level methods are not "inherited"
+  # methods are for classes, because class-level methods are not "inherited"
   # across the metaclass for included modules.
   #
   # NOTE: This methiod is not a common core extension and is not

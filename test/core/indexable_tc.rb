@@ -158,7 +158,7 @@ test_case Indexable do
 
   # We can't use an Array to test the following methods b/c
   # Array handles them specially, either for efficency reasons,
-  # or becuase the have been added to Ruby as of 1.8.7+.
+  # or because the have been added to Ruby as of 1.8.7+.
 
   setup "special Indexable object" do
     @c = Class.new do

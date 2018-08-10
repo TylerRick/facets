@@ -120,7 +120,7 @@ public
   def rindex() @values.rindex end
 
   # Unlike Array, Tuple#<< cannot act in place
-  # becuase Tuple's are immutable.
+  # because Tuple's are immutable.
   def <<( obj )
     self.class.instance( to_a << obj )
   end

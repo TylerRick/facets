@@ -47,7 +47,7 @@ module Enumerable
   # (Note: This used to be called an Elementor.)
   #
   # TODO: With Ruby 1.9+ this would not be required, as it can be replaced
-  # by a generic Functor, becuase then lambda definitions can pass blocks.
+  # by a generic Functor, because then lambda definitions can pass blocks.
   #
   class Permeator #:nodoc:
     private(*instance_methods.select{|x| x !~ /^__/ })

@@ -24,7 +24,7 @@
 
     <p>Facets 2.4 developed out the lessons learned from earlier versions. The most important
     lesson being that Facets touted "atomicity" isn't neccessarily beneficial. Facets
-    Core remains an <span class="red"><i>Atomic Library</i></span> becuase all methods are
+    Core remains an <span class="red"><i>Atomic Library</i></span> because all methods are
     organized into individual files, such that nearly each can be required independently of
     any other. However atomicity can give a false sens of security. When cherry picking methods,
     one must keep in mind another programmer might pick a different set of methods. So ensured
