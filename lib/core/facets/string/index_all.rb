@@ -9,7 +9,7 @@ class String
   #   "bbb".index_all('bb', false)  #=> [0]
   #   "bbb".index_all('bb', true)   #=> [0,1]
   #
-  # TODO: Culd probably be defined for Indexable in general too.
+  # TODO: Could probably be defined for Indexable in general too.
 
   def index_all(s, reuse=false)
     s = Regexp.new(Regexp.escape(s)) unless Regexp===s
