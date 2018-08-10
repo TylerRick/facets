@@ -2,7 +2,7 @@ require 'facets/multiton'
 
 # = Tuple
 #
-# Tuple is essentially an Array, but Comaparable and Immutable.
+# Tuple is essentially an Array, but Comparable and Immutable.
 #
 # A tuple can be made using #new or #[] just as one builds an array,
 # or using the #to_t method on a string or array. With a string tuple
