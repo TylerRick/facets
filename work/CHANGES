@@ -786,7 +786,7 @@ to be complete in the next minor release or two.
         * Removed old stylize.rb library --see new stylizer.rb.
         * Array #recursively is not only called #traverse.
         * Added case/stylize methods to more/facets/string.
-        * Renamed more/string/facets/titlecase to captialize_all.
+        * Renamed more/string/facets/titlecase to capitalize_all.
 
 
 2008-02-29  transami

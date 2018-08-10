@@ -1260,7 +1260,7 @@ Changes:
   * Added stylizer.rb to replace stylize.rb
   * Array #recursively is not only called #traverse.
   * Added case/stylize methods to more/facets/string.
-  * Renamed more/string/facets/titlecase to captialize_all.
+  * Renamed more/string/facets/titlecase to capitalize_all.
   * Added uri and xoxo tests.
   * Progressive work on memoize and elementor.
   * Functor no longer privatizes =, == and =~.

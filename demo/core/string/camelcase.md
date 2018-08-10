@@ -15,7 +15,7 @@ Without an argument the first character is left alone.
 
     "Camel_case".camelcase.assert == "CamelCase"
 
-Passing +:upper+ or +true+ to #camelcase captializes the first letter.
+Passing +:upper+ or +true+ to #camelcase capitalizes the first letter.
 This is known as upper-camelcase.
 
     "Abc_xyz".camelcase(true).assert == "AbcXyz"

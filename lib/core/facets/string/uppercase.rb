@@ -3,8 +3,8 @@ class String
   # Upcase first letter.
   #
   # NOTE: One might argue that this method should behave the same as
-  # +#upcase+ and rather this behavior should be in place of +#captialize+.
-  # Probably so, but since Matz has already defined +#captialize+ the way
+  # +#upcase+ and rather this behavior should be in place of +#capitalize+.
+  # Probably so, but since Matz has already defined +#capitalize+ the way
   # it is, this name seems most fitting to the missing behavior.
   #
   def uppercase

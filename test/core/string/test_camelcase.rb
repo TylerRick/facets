@@ -8,12 +8,12 @@ test_case String do
       "Camel_case".camelcase.assert == "CamelCase"
     end
 
-    test "converts underscore to captialized" do
+    test "converts underscore to capitalized" do
       "abc_xyz".camelcase.assert == "abcXyz"
       "abc____xyz".camelcase.assert == "abcXyz"
     end
 
-    test "can captialize at spaces" do
+    test "can capitalize at spaces" do
       "abc xyz".camelcase(' ').assert == "abcXyz"
       "abc  xyz".camelcase(' ').assert == "abcXyz"
     end
@@ -23,7 +23,7 @@ test_case String do
       "abc//xyz".camelcase('//').assert == "abcXyz"
     end
 
-    test "can captialize at regexp" do
+    test "can capitalize at regexp" do
       "abc\nxyz".camelcase(/\s/).assert == "abcXyz"
       "abc\txyz".camelcase(/\s/).assert == "abcXyz"
     end
