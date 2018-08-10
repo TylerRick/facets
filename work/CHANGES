@@ -403,7 +403,7 @@ And of course, to anyone else I failed to mention that has contributed.
       (Note this class will probably be renamed in the future.)
     * Changed File#rewrite to not use the inplace change of the string.
       * If you were using the function, change your code to use File#rewrite! instead.
-      * Or, modify your code ot use the new behavior.
+      * Or, modify your code to use the new behavior.
       * This change can make for a slippery bug, so be sure to check for it!
     * Moved live.rb to facets-live.rb.
     * Added kernel/instance method which provides a fluent interface to private object space.
@@ -762,7 +762,7 @@ to be complete in the next minor release or two.
 
 2008-03-02  transami
 
-        * Removed remains vestigaes of old organization. (Now just ot fix the new one!)
+        * Removed remains vestigaes of old organization. (Now just to fix the new one!)
         * The big wadoozy.
         * Remove empty directories for more/ext.
         * Move add classes and module to facets/.
@@ -1976,7 +1976,7 @@ attr_xxx methods.
     * added cache to enumerable/every
     * minor updates to facets.rb
     * removed kernel/superior (silly name)
-    * minor modifications ot PROJECT file
+    * minor modifications to PROJECT file
     * [add] more/autovivify.rb expiremental lib.
     * [update] Minor fix to command.rb to not use Kernel methods as subcommands.
     * [update] Work on annotation.rb to improve support for :self.
@@ -2345,7 +2345,7 @@ attr_xxx methods.
       The classes and modules have been reseperated into their own project called Mega Modules.
     * Modified the #firstxxx/#lastxxx methods to be more congruent and comprehensible.
     * Renamed object/supers to object/superup. Better!
-    * Got rid ot symbol/gen. Use object/generate_method_name or  module#generate_instance_method_name
+    * Got rid of symbol/gen. Use object/generate_method_name or  module#generate_instance_method_name
       instead ( Is that the longest non-foo method name ever? :)
     * The file 1st.rb has moved to object/method. This modifies #method to persist the returned
       Method object. The original non-persitent version of #method is aliased to #original_method.

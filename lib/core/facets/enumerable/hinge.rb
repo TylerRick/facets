@@ -1,6 +1,6 @@
 module Enumerable
 
-  # Apply each element of an enumerable ot a hash
+  # Apply each element of an enumerable to a hash
   # by iterating over each element and yielding
   # the hash and element.
   #

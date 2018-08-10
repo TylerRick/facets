@@ -128,7 +128,7 @@ Changes:
       The classes and modules have been reseperated into their own project called Mega Modules.
     * Modified the #firstxxx/#lastxxx methods to be more congruent and comprehensible.
     * Renamed object/supers to object/superup. Better!
-    * Got rid ot symbol/gen. Use object/generate_method_name or  module#generate_instance_method_name
+    * Got rid of symbol/gen. Use object/generate_method_name or  module#generate_instance_method_name
       instead ( Is that the longest non-foo method name ever? :)
     * The file 1st.rb has moved to object/method. This modifies #method to persist the returned
       Method object. The original non-persitent version of #method is aliased to #original_method.

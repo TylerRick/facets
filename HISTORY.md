@@ -1113,7 +1113,7 @@ Changes:
     (Note this class will probably be renamed in the future.)
   * Changed File#rewrite to not use the inplace change of the string.
     * If you were using the function, change your code to use File#rewrite! instead.
-    * Or, modify your code ot use the new behavior.
+    * Or, modify your code to use the new behavior.
     * This change can make for a slippery bug, so be sure to check for it!
   * Moved live.rb to facets-live.rb.
   * Added kernel/instance method which provides a fluent interface to private object space.
@@ -2146,7 +2146,7 @@ Changes:
   * added cache to enumerable/every
   * minor updates to facets.rb
   * removed kernel/superior (silly name)
-  * minor modifications ot PROJECT file
+  * minor modifications to PROJECT file
   * [add] more/autovivify.rb expiremental lib.
   * [update] Minor fix to command.rb to not use Kernel methods as subcommands.
   * [update] Work on annotation.rb to improve support for :self.
