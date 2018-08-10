@@ -21,7 +21,7 @@ class Hash
     yield h
   end
 
-  # In place form of #recurse.
+  # In-place form of #recurse.
   def recurse!(&block)
     replace(recurse(&block))
   end

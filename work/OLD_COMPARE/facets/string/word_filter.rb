@@ -10,7 +10,7 @@ class String
     s.word_filter!( &blk )
   end
 
-  # In place version of #word_filter.
+  # In-place version of #word_filter.
   #
   #   "a string".word_filter { |word| ... }
   #

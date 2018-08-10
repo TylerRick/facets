@@ -69,7 +69,7 @@ test_case String do
 
   method :indent! do
 
-    test "in place rendition of #unindent" do
+    test "in-place rendition of #unindent" do
       s = "xyz"
       s.indent!(4)
       s.assert == '    xyz'

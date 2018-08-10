@@ -1,6 +1,6 @@
 class Array
 
-  # In place #merge.
+  # In-place #merge.
   #
   #   a = [1,2]
   #   a.merge! [2,3]

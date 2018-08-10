@@ -11,7 +11,7 @@ class String
     split(separator).shuffle.join('')
   end
 
-  # In place version of shuffle.
+  # In-place version of shuffle.
   #
   def shuffle!(separator=//)
     self.replace( shuffle(separator) )

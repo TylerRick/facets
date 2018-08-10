@@ -28,7 +28,7 @@ class Hash
     end
   end
 
-  # In place version of traverse, which traverses the hash and its
+  # In-place version of traverse, which traverses the hash and its
   # subhashes, executing the given block on the key and value.
   #
   #   h = { "A"=>"A", "B"=>"B" }

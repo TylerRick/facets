@@ -12,7 +12,7 @@ module Enumerable
     per(:map)
   end
 
-  # In place version of #every.
+  # In-place version of #every.
   #
   def every!
     raise NoMethodError unless respond_to?(:map!)

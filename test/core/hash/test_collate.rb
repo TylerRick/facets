@@ -38,7 +38,7 @@ test_case Hash do
 
   method :collate! do
 
-    test "in place variant of #collate" do
+    test "in-place variant of #collate" do
       collated = @a.dup
       collated.collate!(@b)
 

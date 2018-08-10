@@ -2,7 +2,7 @@ require 'facets/enumerable/graph'
 
 class Hash
 
-  # In place version of #graph.
+  # In-place version of #graph.
   #
   # NOTE: Hash#graph! is only useful for Hash.
   # It is not generally applicable to Enumerable.

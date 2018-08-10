@@ -401,7 +401,7 @@ And of course, to anyone else I failed to mention that has contributed.
 
     * Added Ken Bloom's DictionaryMatcher class from Ruby Quiz #103.
       (Note this class will probably be renamed in the future.)
-    * Changed File#rewrite to not use the inplace change of the string.
+    * Changed File#rewrite to not use the in-place change of the string.
       * If you were using the function, change your code to use File#rewrite! instead.
       * Or, modify your code to use the new behavior.
       * This change can make for a slippery bug, so be sure to check for it!
@@ -1201,7 +1201,7 @@ library. Bug thanks to Matthew!
         * Added some missing tests.
         * Continued docs update.
         * Update docs.
-        * Added test_collect.rb split-offs and test_mash inplace of test_collate.
+        * Added test_collect.rb split-offs and test_mash in place of test_collate.
         * Updated lots of test headers.
         * Renamed Enumerable #collate to #mash. (old name, along with graph, will be an alias for time being)
         * Lots of doc updates.

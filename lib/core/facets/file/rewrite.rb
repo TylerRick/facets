@@ -21,7 +21,7 @@ class File
   #   # Replace "foo" by "bar" in "binary.dat".
   #   File.rewrite("binary.dat", "b") { |str| str.gsub("foo", "bar") }
   #
-  # IMPORTANT: The old version of this method required in place modification
+  # IMPORTANT: The old version of this method required in-place modification
   # of the file string. The new version will write whatever the block
   # returns instead!!!
   #
@@ -52,7 +52,7 @@ class File
     end
   end
 
-  # In place version of #rewrite. This version of method requires that the
+  # In-place version of #rewrite. This version of method requires that the
   # string be modified in place within the block.
   #
   #   # Reverse contents of "message"
