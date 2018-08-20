@@ -501,7 +501,7 @@ Changes:
 
   * Integer#multiple? handles zero as an argument.
   * facets.rb is now dynamically loaded instead of code generated.
-  * General imporvements to date.rb.
+  * General improvements to date.rb.
 
 
 ## 2.8.1 / 2009-12-25
@@ -2106,12 +2106,12 @@ Changes:
   * removed uses of __class__ for object_class and solidified usaged of #as in basicobject.rb
   * deprecated ostruct shadow methods (i.e __table__) in favor of #instance methods
   * added test to module/alias_method_chain
-  * imporvements to instance_exec thanks to Mauricio Fernandez
+  * improvements to instance_exec thanks to Mauricio Fernandez
   * improvements to kernel/send_as
   * improvements to kernel/as
   * minor doc addition to kernel/as
   * fixed syntax in hash/op_add.rb
-  * imporvements to hash/partition_by thanks to Gregory of Laurel
+  * improvements to hash/partition_by thanks to Gregory of Laurel
   * added Mauricio Fernandez to authors
   * added addtional work library lore
   * moved "calibre" project information files
