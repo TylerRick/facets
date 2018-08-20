@@ -225,7 +225,7 @@ Changes:
       hash/keys_to_symbol to hash/keys_to_sym to be more consistant
       with other methods and what these methods specifically do.
       The old names have been deprecated.
-    * Added hash/has_keys?, which allows for checking mutliple keys at once.
+    * Added hash/has_keys?, which allows for checking multiple keys at once.
       Also includes #has_only_keys?
     * Added Rail's Time and Byte modules for Numeric with
       numeric/times.rb and numeric/bytes.rb (I've been informed that

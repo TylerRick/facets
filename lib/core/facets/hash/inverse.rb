@@ -1,6 +1,6 @@
 class Hash
 
-  # Create a "true" inverse hash by storing mutliple values in Arrays.
+  # Create a "true" inverse hash by storing multiple values in Arrays.
   #
   #   h = {"a"=>3, "b"=>3, "c"=>3, "d"=>2, "e"=>9, "f"=>3, "g"=>9}
   #
