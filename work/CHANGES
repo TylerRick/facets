@@ -1436,7 +1436,7 @@ attr_xxx methods.
         * Improved Integer#of.
         * Minor improvements to collect.rb and partition.rb
         * Deprecated nonuniq!, bug fixed cluster_by and aliased group_by and partition_by.
-        * Rennamed Enumerable#partition_by to group_by (like RUby 1.9) and fixed bug in cluster_by.
+        * Renamed Enumerable#partition_by to group_by (like RUby 1.9) and fixed bug in cluster_by.
         * update quick docs
         * Doc updates
 
