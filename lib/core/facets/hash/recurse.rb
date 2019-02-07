@@ -7,6 +7,8 @@ class Hash
   #   g = h.recurse{|h| h.inject({}){|h,(k,v)| h[k.to_s] = v; h} }
   #   g  #=> {"a"=>1, "b"=>{"b1"=>1, "b2"=>2}}
   #
+  #  @author Trans
+  #
   def recurse(*types, &block)
     types = [self.class] if types.empty?
     h = inject({}) do |hash, (key, value)|

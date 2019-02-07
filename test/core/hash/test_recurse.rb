@@ -13,13 +13,15 @@ test_case Hash do
     test "with Arrays" do
       require 'facets/array/recurse'
       objects = []
-      struct = {:a => 3, :b => [4, 5, {:c=>6}]} 
-      struct.recurse(Array, Hash){|o| objects << o; o }
+      h = {
+        a: 'a',
+        b: [4, 5, {c: 6}]
+      }
+      h.recurse(Array, Hash) {|o| objects << o; o }
 
-      objects.assert.include?( {:c=>6}                          )
-      objects.assert.include?( [4, 5, {:c=>6}]                  )
-      objects.assert.include?( struct                           )
-
+      objects.assert.include? c: 6
+      objects.assert.include? [4, 5, {c: 6}]
+      objects.assert.include? h
       objects.length.assert == 3
     end
 
