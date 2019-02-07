@@ -5,10 +5,14 @@ test_case String do
   method :to_re do
 
     test do
-      "abc".to_re.assert == /abc/
-      "a+bc".to_re.assert == /a+bc/
+      "abc". to_re.       assert == /abc/
+      "a+bc".to_re.       assert == /a+bc/
       "a+bc".to_re(false).assert == /a+bc/
-      "a+bc".to_re(true).assert == /a\+bc/
+      "a+bc".to_re(true). assert == /a\+bc/
+    end
+
+    test do
+      "a+bc".to_re(nil, 'm').assert == /a\+bc/m
     end
 
   end

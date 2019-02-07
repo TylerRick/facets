@@ -8,7 +8,7 @@ module Enumerable
     Recursor.new(self, *types, &block)
   end
 
-  # Recursor is a specialized Functor for recurively iterating over Enumerables.
+  # Recursor is a specialized Functor for recursively iterating over Enumerables.
   #
   # TODO: Return Enumerator if no +yld+ block is given.
   #

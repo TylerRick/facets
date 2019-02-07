@@ -1,4 +1,9 @@
 covers 'facets/enumerable/map_send'
+# Add example for something like (add new method if needed):
+# global_variables.map {|x| send x }
+# global_variables.map {|x| eval x }
+#   global_variables.map_send(&:eval) ?
+
 
 test_case Enumerable do
 
