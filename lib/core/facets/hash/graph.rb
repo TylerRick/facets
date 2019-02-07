@@ -13,6 +13,7 @@ class Hash
 
   # Alias for #graph! as an alliteration for "map hash".
   alias_method :mash!, :graph!
+  alias_method :mash,  :graph
 
 end
 
