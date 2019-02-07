@@ -6,6 +6,9 @@ group :test do
   gem 'rubytest-cli'
   gem 'rake'
   gem 'simplecov'
+
+  gem 'pry'
+  gem 'byebug'
 end
 
 group :guard do

@@ -1,3 +1,5 @@
+# Copied from facets gem
+
 class Class
   # Returns a subset of `ancestors` that only includes classes (no modules) and does not include
   # self.
