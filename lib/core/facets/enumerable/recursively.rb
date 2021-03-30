@@ -22,6 +22,7 @@ module Enumerable
         when *types
           res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
           if rec.arity > 1 or rec.arity == -1
+            # TODO: should path be passed as KW arg path: local_path here too?
             rec.call_up_to_arity(k, res, local_path, this)
           else
             rec.call(res)
