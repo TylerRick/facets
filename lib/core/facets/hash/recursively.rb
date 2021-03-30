@@ -11,7 +11,7 @@ class Hash
   #     #=> [["a", 1], ["b", [["y", 2], ["x", 1]]]]
   #
   # The recursive iteration can be treated separately from the non-recursive
-  # iteration by passing a block to the #recursive method:
+  # iteration by passing a block to the #recursively method:
   #
   #     h = {:a=>1, :b=>{:x=>1, :y=>2}}
   #     h.recursively{ |k,v| [k.to_s, v] }.map{ |k,v| [k.to_s, v.to_s] }
