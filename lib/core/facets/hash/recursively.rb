@@ -23,8 +23,7 @@ class Hash
 
   class Recursor < Enumerable::Recursor #:nodoc:
     def initialize(enum, *types, path: [], &block)
-      @path = path
-      super(enum, *types, &block)
+      super(enum, *types, path: path, &block)
     end
     def method_missing(op, &yld)
       yld = yld    || lambda{ |k,v| [k,v] }  # ? to_enum

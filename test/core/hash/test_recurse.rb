@@ -6,7 +6,11 @@ test_case Hash do
 
     test do
       h = {:a=>1, :b=>{:b1=>1, :b2=>2}}
-      g = h.recurse{|h| h.inject({}){|h,(k,v)| h[k.to_s] = v; h} }
+      g = h.recurse { |h|
+        h.each_with_object({}) { |(k,v), h|
+          h[k.to_s] = v
+        }
+      }
       g.assert == {"a"=>1, "b"=>{"b1"=>1, "b2"=>2}}
     end
 

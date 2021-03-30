@@ -67,13 +67,41 @@ test_case Hash do
 
     test "with Arrays" do
       require 'facets/array/recurse_with_path'
+      h         = {a: 'a', b: [0, 1, {b2: 'b2'}]}
+      h.dig(:b, 2, :b2).assert == 'b2'
+      paths = []
+      g = h.recurse_with_path(Array, Hash) { |o, path|
+        paths << path
+        o
+      }
+      g.assert == {a: 'a', b: [0, 1, {b2: 'b2'}]}
+      paths.assert == [ [:b, 2], [:b], [] ]
+    end
+
+    test "with Arrays (contrived, unimpressive example)" do
+      require 'facets/array/recurse_with_path'
       h = {a: 'a', b: [0, 1, {b2: 'b2'}]}
       h.dig(:b, 2, :b2).assert == 'b2'
       g = h.recurse_with_path(Array, Hash) { |o, path|
-        o
+        next h if path.length < 1
+        h.inject({}) { |h,(k,v)|
+          h[k.to_s] = v; h
+        }
       }
       g.assert == {a: 'a', b: [0, 1, {b2: "b2"}]}
     end
+
+#    test "with Arrays (how I wish it would work, but doesn't)" do
+#      require 'facets/array/recurse_with_path'
+#      h = {:a=>{:a1=>1, :b2=>2}, :b=>["b1", "b2"]}
+#      h = {:b=>["b1", "b2"]}
+#      h = {:a=>{:a1=>1, :b2=>2}, :b=>["b1", {:b2a=>"a"}]}
+#
+#      $d=1
+#      flat = h.recurse_with_path(Array, Hash) {|h, path| h.inject({}) { |h, (k,v)| h[path + [k]] = v; h} }
+#      flat.assert = {"a.a1"=>1, "a.b2"=>2, "b.0"=>"b1", "b.1"=>"b2"}
+#      # {[:a]=>{[:a, :a1]=>1, [:a, :b2]=>2}, [:b]=>{[:b, "b1"]=>nil, [:b, {[:b, 1, :b2a]=>"a"}]=>nil}}
+#    end
 
     test "with Arrays" do
       require 'facets/array/recurse_with_path'

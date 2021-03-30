@@ -98,8 +98,10 @@ test_case Hash do
     test 'mash (arity 3)' do
       h = {a: 1, b: {c: 3}}
       r = h.recursively { |k,v, path|
+        #p path => [k,v]
         [k.to_s, v]
-      }.mash { |k,v, path|
+      }.graph { |k,v, path|
+        #p path => [k,v]
         [k.to_s, v.to_s]
       }
       r.assert == {'a'=>'1','b'=>{'c'=>'3'}}

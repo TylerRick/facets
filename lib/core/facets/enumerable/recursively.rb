@@ -17,7 +17,8 @@ module Enumerable
   class Recursor
     instance_methods(true).each{ |m| private m unless /^(__|object_id$)/ =~ m.to_s }
 
-    def initialize(enum, *types, &block)
+    def initialize(enum, *types, path: [], &block)
+      @path = path
       @enum   = enum
       @types  = types.empty? ? [@enum.class] : types
       @block  = block
@@ -26,15 +27,28 @@ module Enumerable
     def method_missing(op, &yld)
       rec = @block || lambda{ |v| v }
       yld = yld    || lambda{ |v| v }  # ? to_enum
-      @enum.__send__(op) do |v|
+      @enum.__send__(op).with_index do |v, k|
+        path = @path + [k]
         case v
         when String # b/c of 1.8
-          yld.call(v)
+          if yld.arity == 3 or yld.arity == -1
+            yld.call(k, v, path)
+          else
+            yld.call(v)
+          end
         when *@types
-          res = v.recursively(*@types, &@block).__send__(op,&yld)
-          rec.call(res)
+          res = v.recursively(*@types, path: path, &@block).__send__(op,&yld)
+          if rec.arity == 3 or rec.arity == -1
+            rec.call(k, res, path)
+          else
+            rec.call(res)
+          end
         else
-          yld.call(v)
+          if yld.arity == 3 or yld.arity == -1
+            yld.call(k, v, path)
+          else
+            yld.call(v)
+          end
         end
       end
     end
