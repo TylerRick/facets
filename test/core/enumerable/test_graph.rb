@@ -4,10 +4,17 @@ test_case Enumerable do
 
   method :graph do
 
-    test "returns hash" do
+    test "returns hash with single k-v" do
       a = { :a => 1, :b => 2, :c => 3 }
       e = { :a => 2, :b => 3, :c => 4 }
       r = a.graph{ |k,v| {k => v+1} }
+      r.assert == e
+    end
+
+    test "returns hash with multiple k-vs" do
+      a = { 1 => 1, 2 => 2 }
+      e = { 1 => 1, 2 => 2, 4 => 4 }
+      r = a.graph{ |k,v| {k => v, k*k => v*v} }
       r.assert == e
     end
 
