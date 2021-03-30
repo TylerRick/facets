@@ -1,4 +1,5 @@
 require 'facets/functor'
+require 'facets/proc/call_up_to_arity'
 
 module Enumerable
 
@@ -20,15 +21,15 @@ module Enumerable
         case v
         when *types
           res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
-          if rec.arity == 4 or rec.arity == -1
+          if rec.arity > 1 or rec.arity == -1
             # TODO: should path be passed as KW arg path: local_path here too?
-            rec.call(k, res, local_path, this)
+            rec.call_up_to_arity(k, res, local_path, this)
           else
             rec.call(res)
           end
         else
-          if yld.arity == 4 or yld.arity == -1
-            yld.call(k, v, local_path, this)
+          if yld.arity > 1 or yld.arity == -1
+            yld.call_up_to_arity(k, v, local_path, this)
           else
             yld.call(v)
           end
