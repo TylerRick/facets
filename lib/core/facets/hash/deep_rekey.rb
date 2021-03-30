@@ -17,7 +17,7 @@ class Hash
   #   foo.deep_rekey(:b=>:x)        #=> { :c=>{ :a =>1, :x=>2 } }
   #   foo.deep_rekey('foo'=>'bar')  #=> { :c=>{ :a =>1, :b=>2 } }
   #
-  # If a block is given, converts all keys in the Hash accroding to the
+  # If a block is given, converts all keys in the Hash according to the
   # given block procedure.
   #
   #   foo = { :person=>{ :name=>'Gavin', :wife=>:Lisa } }
