@@ -2,7 +2,7 @@ covers 'facets/enumerable/contiguous'
 
 test_case Enumerable do
 
-  method :contiguous_chunks do
+  method :chunk_succ do
 
     test "on an array, non-increasing" do
       [0, 2, 3, 5, 6, 4, 5, 6, 7, 13].chunk_succ.assert == \

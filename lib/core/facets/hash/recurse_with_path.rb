@@ -32,6 +32,9 @@ class Hash
   #   }
   #   => {"a"=>1, "b.b1"=>1, "b.b2"=>2}
   #
+  #   See also: Enumerable#flatten_as_hash_by_path, which does the same but also work with nested
+  #   arrays (using index as part of path).
+  #
   #  @author Trans         (recurse)
   #  @author Tyler Rick    (recurse_with_path)
   #
