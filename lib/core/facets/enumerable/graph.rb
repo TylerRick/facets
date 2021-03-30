@@ -7,6 +7,8 @@ module Enumerable
   #   squares  = numbers.graph{ |n| [n, n*n] }   # { 1=>1, 2=>4, 3=>9 }
   #   sq_roots = numbers.graph{ |n| [n*n, n] }   # { 1=>1, 4=>2, 9=>3 }
   #
+  # If block returns a hash, it will be merged into the new/result/accumulator hash.
+  #
   # CREDIT: Andrew Dudzik (adudzik), Trans
 
   def graph(&yld)
@@ -16,13 +18,14 @@ module Enumerable
         r = yld[*kv]
         case r
         when Hash
-          nk, nv = *r.to_a[0]
+          h.merge!(r)
         when Range
           nk, nv = r.first, r.last
+          h[nk] = nv
         else
           nk, nv = *r
+          h[nk] = nv
         end
-        h[nk] = nv
       end
       h
     else
