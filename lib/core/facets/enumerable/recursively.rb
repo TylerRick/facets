@@ -11,6 +11,7 @@ module Enumerable
   end
   def recursively(*types, path: [], &block)
     types = types.empty? ? [self.class] : types
+    this = self
     Functor.new do |op, &yld|
       rec = block || lambda{ |v| v }
       yld = yld   || lambda{ |v| v }  # ? to_enum
@@ -19,14 +20,14 @@ module Enumerable
         case v
         when *types
           res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
-          if rec.arity == 3 or rec.arity == -1
-            rec.call(k, res, local_path)
+          if rec.arity == 4 or rec.arity == -1
+            rec.call(k, res, local_path, this)
           else
             rec.call(res)
           end
         else
-          if yld.arity == 3 or yld.arity == -1
-            yld.call(k, v, local_path)
+          if yld.arity == 4 or yld.arity == -1
+            yld.call(k, v, local_path, this)
           else
             yld.call(v)
           end

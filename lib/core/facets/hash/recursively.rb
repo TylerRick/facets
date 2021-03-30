@@ -23,6 +23,7 @@ class Hash
   end
   def recursively(*types, path: [], &block)
     types = types.empty? ? [self.class] : types
+    this = self
     Functor.new do |op, &yld|
       rec = block || yld
       __send__(op) do |k,v|
@@ -30,9 +31,9 @@ class Hash
         case v
         when *types
           res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
-          rec.call_up_to_arity(k, res, local_path)
+          rec.call_up_to_arity(k, res, local_path, this)
         else
-          yld.call_up_to_arity(k, v, local_path)
+          yld.call_up_to_arity(k, v, local_path, this)
         end
       end
     end
