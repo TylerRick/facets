@@ -1,11 +1,38 @@
+require 'facets/functor'
+
 module Enumerable
 
   # Returns a recursive functor, that allows enumerable methods to iterate
   # through enumerable sub-elements. By default it only recurses over
   # elements of the same type.
   #
-  def recursively(*types, &block)
+  def old_recursively(*types, &block)
     Recursor.new(self, *types, &block)
+  end
+  def recursively(*types, path: [], &block)
+    types = types.empty? ? [self.class] : types
+    Functor.new do |op, &yld|
+      rec = block || lambda{ |v| v }
+      yld = yld   || lambda{ |v| v }  # ? to_enum
+      __send__(op).with_index do |v, k|
+        local_path = path + [k]
+        case v
+        when *types
+          res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
+          if rec.arity == 3 or rec.arity == -1
+            rec.call(k, res, local_path)
+          else
+            rec.call(res)
+          end
+        else
+          if yld.arity == 3 or yld.arity == -1
+            yld.call(k, v, local_path)
+          else
+            yld.call(v)
+          end
+        end
+      end
+    end
   end
 
   # Recursor is a specialized Functor for recursively iterating over Enumerables.
@@ -53,28 +80,5 @@ module Enumerable
       end
     end
   end
-
-  ## TODO: When no longer needing to support 1.8.6 we could get rid of
-  ## the Recursor class and use:
-  ## #
-  ## def recursively(*types, &block)
-  ##   types = types.empty? ? [self.class] : types
-  ##   Functor.new do |op, &yld|
-  ##     rec = block || lambda{ |v| v }
-  ##     yld = yld   || lambda{ |v| v }  # ? to_enum
-  ##     __send__(op) do |v|
-  ##       case v
-  ##       when String # b/c of 1.8
-  ##         yld.call(v)
-  ##       when *types
-  ##         res = v.recursively(*types, &block).__send__(op,&yld)
-  ##         rec.call(res)
-  ##       else
-  ##         yld.call(v)
-  ##       end
-  ##     end
-  ##   end
-  ## end
-
 end
 

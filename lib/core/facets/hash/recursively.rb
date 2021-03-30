@@ -17,9 +17,34 @@ class Hash
   #     h.recursively{ |k,v| [k.to_s, v] }.map{ |k,v| [k.to_s, v.to_s] }
   #     #=> [["a", "1"], ["b", [["y", "2"], ["x", "1"]]]]
   #
-  def recursively(*types, path: [], &block)
+  def old_recursively(*types, path: [], &block)
     Recursor.new(self, *types, path: path, &block)
   end
+  def recursively(*types, path: [], &block)
+    types = types.empty? ? [self.class] : types
+    Functor.new do |op, &yld|
+      rec = block || yld
+      __send__(op) do |k,v|
+        local_path = path + [k]
+        case v
+        when *types
+          res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
+          if rec.arity == 3 or rec.arity == -1
+            rec.call(k, res, local_path)
+          else
+            rec.call(k, res)
+          end
+        else
+          if yld.arity == 3 or yld.arity == -1
+            yld.call(k, v, local_path)
+          else
+            yld.call(k, v)
+          end
+        end
+      end
+    end
+  end
+
 
   class Recursor < Enumerable::Recursor #:nodoc:
     def initialize(enum, *types, path: [], &block)
@@ -83,24 +108,5 @@ class Hash
       end
     end
   end
-
-## TODO: When no longer need 1.8.6 support.
-=begin
-  def recursively(*types, &block)
-    types = types.empty? ? [self.class] : types
-    Functor.new do |op, &yld|
-      rec = block || yld
-      __send__(op) do |k,v|
-        case v
-        when *types
-          rec.call(k, v.recursively(*types, &block).__send__(op,&yld))
-        else
-          yld.call(k,v)
-        end
-      end
-    end
-  end
-=end
-
 end
 
