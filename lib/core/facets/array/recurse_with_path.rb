@@ -3,9 +3,12 @@ class Array
   # Apply a block to array, and recursively apply that block
   # to each sub-array or +types+.
   #
-  #   arr = ["a", ["b", "c", nil], nil]
-  #   arr.recurse_with_path{ |a| a.compact! }
-  #   #=> ["a", ["b", "c"]]
+  # This works the same as recurse except it yields |sub_hash, path| instead of just |sub_hash|.
+  #
+  # @example
+  #
+  #   # TODO: come up with good example
+  #
   #
   def recurse_with_path(*types, path: [], &block)
     types = [self.class] if types.empty?
