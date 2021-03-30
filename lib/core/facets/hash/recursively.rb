@@ -1,5 +1,6 @@
 require 'facets/functor'
 require 'facets/enumerable/recursively'
+require 'facets/proc/call_up_to_arity'
 
 class Hash
 
@@ -29,18 +30,10 @@ class Hash
         case v
         when *types
           res = v.recursively(*types, path: local_path, &block).__send__(op,&yld)
-          if rec.arity == 3 or rec.arity == -1
-            # TODO: should path be passed as KW arg path: local_path here too?
-            rec.call(k, res, local_path)
-          else
-            rec.call(k, res)
-          end
+          # TODO: should path be passed as KW arg path: local_path here too?
+          rec.call_up_to_arity(k, res, local_path)
         else
-          if yld.arity == 3 or yld.arity == -1
-            yld.call(k, v, local_path)
-          else
-            yld.call(k, v)
-          end
+          yld.call_up_to_arity(k, v, local_path)
         end
       end
     end
