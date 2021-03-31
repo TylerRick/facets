@@ -29,7 +29,7 @@ module Enumerable
       end
       h
     else
-      Enumerator.new(self,:graph)
+      to_enum(:graph)
     end
   end
 
