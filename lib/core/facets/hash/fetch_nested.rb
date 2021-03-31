@@ -7,6 +7,9 @@ class Hash
   #     h = {'hello'=>{'world'=>42}}
   #     h.fetch_nested(*['hello','world'])  #=> 42
   #
+  # Discuss: Is this identical to dig from Ruby 2.3? If so, should we remove it and recommend using
+  # dig instead?
+  #
   # CREDIT: T. Yamada and Sean Mackesey
 
   def fetch_nested(*keys)
